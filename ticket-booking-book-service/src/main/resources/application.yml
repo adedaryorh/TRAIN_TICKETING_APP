@@ -1,0 +1,33 @@
+server:
+  port: 9001
+
+# Datasource configuration
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/ticket_book_detail?createDatabaseIfNotExist=true
+    username: adeyemiadedayo
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  # JPA configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+    show-sql: true
+
+  application:
+    name: ticket-booking-book-service
+
+# Dialect Spring Boot can auto-detect, but we can set it here also
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
